@@ -61,6 +61,25 @@ a single share.
 
 ---
 
+## macOS (Intel & Apple Silicon)
+There's no prebuilt macOS engine to bundle (and no notarized `.app` yet), so on a Mac the
+miner is built from source by a one-line installer. In **Terminal**:
+
+```sh
+curl -fsSL https://sololuck.io/mac-miner.sh | bash
+```
+
+It asks for your BTC address, installs build tools (Xcode Command Line Tools + Homebrew
+deps), compiles **cpuminer-opt** (falling back to **pooler/cpuminer**), and mines to
+`stratum.sololuck.io:3335` (the Nano tier). `Ctrl-C` to stop. The script is
+[`mac-miner.sh`](mac-miner.sh) in this repo.
+
+Manual: `brew install autoconf automake libtool pkg-config curl jansson`, build
+[cpuminer-opt](https://github.com/JayDDee/cpuminer-opt), then
+`cpuminer -a sha256d -o stratum+tcp://stratum.sololuck.io:3335 -u YOURADDR.mac -p x`.
+
+---
+
 ## Notes
 - A PC's hashrate is tiny vs ASICs — treat this as a lottery ticket, fitting for a solo pool.
 - Pure Python standard library (tkinter + urllib). Its only network use is downloading the
