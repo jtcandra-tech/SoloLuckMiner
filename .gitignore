@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+SoloLuckMiner-engine/
+engine/
+*.exe
+*.zip
+*.cfg
+dist/
+build/
+sololuck_*test.txt
+*.spec
